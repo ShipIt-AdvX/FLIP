@@ -1,4 +1,4 @@
-import fastify from "../core.js";
+import fastify from "../packages/backend/src/core.js";
 
 export default async function handler(req, res) {
     await fastify.ready();

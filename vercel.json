@@ -4,7 +4,7 @@
     "outputDirectory": "packages/frontend/dist",
 
     "functions": {
-        "packages/backend/api/index.ts": {
+        "packages/backend/src/core.ts": {
             "maxDuration": "max"
         }
     },

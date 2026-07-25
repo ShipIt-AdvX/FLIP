@@ -320,12 +320,9 @@ ASSISTANT:
 // 服务存活测试用
 fastify.get("/", async (req, rep) => rep.code(200).send("hello api server!"));
 
-if(!process.env.FASTIFY_SERVERLESS) {
-    fastify.listen({ port: 5738, host: "0.0.0.0" }, (e, a) => {
-        if (e) {
-            logger.error(`failed to start: ${e}`);
-        }
-        logger.info(`server listening on ${a}`);
-    });
-}
-export default awsLambdaFastify(fastify);
+fastify.listen({ port: 5738, host: "0.0.0.0" }, (e, a) => {
+    if (e) {
+        logger.error(`failed to start: ${e}`);
+    }
+    logger.info(`server listening on ${a}`);
+});

@@ -1,31 +1,17 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "packages/frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    },
-    {
-      "src": "packages/backend/api/index.ts",
-      "use": "@vercel/node"
-    }
-  ],
+  "buildCommand": "cd packages/frontend && npm run build",
+  "outputDirectory": "packages/frontend/dist",
+
   "functions": {
     "packages/backend/api/index.ts": {
       "runtime": "nodejs22.x"
     }
   },
-  "routes": [
+
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/packages/backend/api/index.ts"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/packages/frontend/dist/$1"
+      "source": "/api/:path*",
+      "destination": "/api"
     }
   ]
 }

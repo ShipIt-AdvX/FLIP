@@ -3,10 +3,6 @@
     "buildCommand": "cd packages/frontend && npm run build",
     "outputDirectory": "packages/frontend/dist",
     "functions": {
-        "packages/backend/api/index.ts": {
-            "runtime": "nodejs@24.x"
-        }
-    },
     "rewrites": [
         {
             "source": "/api/:path*",

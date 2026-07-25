@@ -1,3 +1,3 @@
-import handler from "../packages/backend";
+import handler from "@flip/backend";
 
 export default handler;

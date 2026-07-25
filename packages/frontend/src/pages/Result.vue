@@ -17,6 +17,8 @@
                         <h1>{{ flip }}</h1>
                         <p>{{ flipDesc }}</p>
                         <p>判断理由：{{ flipReason }}</p>
+                        <Divider />
+
                         <p>本测验仅供娱乐，不要太过于当真。</p>
                         <Button variant="contained" :endIcon="createElement(Replay)" @click="retest">再测一次！</Button>
                     </CardContent>
@@ -27,7 +29,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Card as CardReact, CardContent as CardContentReact, CircularProgress as CircularProgressReact, Button as ButtonReact } from '@mui/material';
+import { Card as CardReact, CardContent as CardContentReact, CircularProgress as CircularProgressReact, Button as ButtonReact, Divider as DividerReact } from '@mui/material';
 import { Replay } from '@mui/icons-material';
 import { applyPureReactInVue } from 'veaury';
 import { useRouter } from 'vue-router';
@@ -44,6 +46,7 @@ const Button = applyPureReactInVue(ButtonReact);
 const Card = applyPureReactInVue(CardReact);
 const CardContent = applyPureReactInVue(CardContentReact);
 const CircularProgress = applyPureReactInVue(CircularProgressReact);
+const Divider = applyPureReactInVue(DividerReact);
 
 // judge it
 const messages = JSON.parse(localStorage.getItem("history"));
@@ -61,13 +64,16 @@ fetch("/api/judge", {
         // TODO: Error handler
     }
     const data = (await resp.json()).data;
+    console.log(`got data: `, data);
+    flipReason.value = data.reason;
     let whatFlip = "";
     const confidence = data.confidence;
     if (confidence.mind >= 0.5) whatFlip += "S"; else whatFlip += "L";
     if (confidence.feeling >= 0.5) whatFlip += "C"; else whatFlip += "W";
     if (confidence.express >= 0.5) whatFlip += "P"; else whatFlip += "V";
-    if (confidence.words >= 0.5) whatFlip += "T"; else whatFlip += "L";
-    flip.value = `${whatFlip}`;
+    if (confidence.words >= 0.5) whatFlip += "T"; else whatFlip += "O";
+    console.log(`FLIP is ${whatFlip}`);
+    flip.value = `${FLIPDefines[whatFlip].name} / ${whatFlip}`;
     flipDesc.value = FLIPDefines[whatFlip].desc;
     judging.value = false;
 })

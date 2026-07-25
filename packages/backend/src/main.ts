@@ -1,3 +1,4 @@
+import awsLambdaFastify from '@fastify/aws-lambda';
 import Fastify from 'fastify';
 import { OpenAI } from 'openai';
 import type { ChatCompletionMessageParam } from 'openai/resources';
@@ -15,7 +16,8 @@ const fastify = Fastify({
     logger: true
 });
 const logger = fastify.log;
-const apiBase = "/api";
+let apiBase = "/api"
+if(process.env.FASTIFY_SERVERLESS) apiBase = "";
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
     baseURL: process.env.OPENAI_BASE_URL
@@ -318,9 +320,12 @@ ASSISTANT:
 // 服务存活测试用
 fastify.get("/", async (req, rep) => rep.code(200).send("hello api server!"));
 
-fastify.listen({ port: 5738, host: "0.0.0.0" }, (e, a) => {
-    if (e) {
-        logger.error(`failed to start: ${e}`);
-    }
-    logger.info(`server listening on ${a}`);
-});
+if(!process.env.FASTIFY_SERVERLESS) {
+    fastify.listen({ port: 5738, host: "0.0.0.0" }, (e, a) => {
+        if (e) {
+            logger.error(`failed to start: ${e}`);
+        }
+        logger.info(`server listening on ${a}`);
+    });
+}
+export default awsLambdaFastify(fastify);

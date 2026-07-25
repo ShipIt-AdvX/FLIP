@@ -32,6 +32,12 @@
             @close="showError = false"
             message="发送消息时发生错误 / An error occured while sending a message"
             />
+        <Snackbar
+            :open="ddlReached"
+            :auto-hide-duration="3000"
+            @close="ddlReached = false"
+            message="时间到！ / Times up!"
+            />
     </div>
 </template>
 
@@ -48,8 +54,10 @@ const username = localStorage.getItem("username") || "HumanUser";
 const timeTotal = ref(120);
 const CONVERSATION_ID = "flip-chat-session";
 const showError = ref(false);
+const ddlReached = ref(false);
 const chatStatus = ref("在线");
 const remain = ref(timeTotal.value);
+const router = useRouter();
 
 const getMessageText = (message: ChatMessage) => message.parts.map(part => part.type === 'text' ? part.text : '').join('');
 
@@ -140,12 +148,14 @@ const conversation: ChatConversation = {
 }
 
 // countdown
-setInterval(() => {
+const interval = setInterval(() => {
     remain.value--;
+    if (remain.value < 0){
+        clearInterval(interval); // 🤔
+        ddlReached.value = true;
+        router.push("/result");
+    }
 }, 1000);
-setTimeout(() => {
-    useRouter().push("/result");
-}, timeTotal * 1000);
 </script>
 
 <style>

@@ -15,8 +15,8 @@
 <style scoped></style>
 
 <script setup lang="ts">
-import { AppBar as AppBarReact, type AppBarProps, Toolbar as ToolbarReact, Typography as TypographyReact, type TypographyProps, ThemeProvider as ThemeProviderReact, createTheme, CssBaseline as CssBaselineReact } from "@mui/material"
-import { applyReactInVue, applyPureReactInVue } from "veaury";
+import { AppBar as AppBarReact, Toolbar as ToolbarReact, Typography as TypographyReact, ThemeProvider as ThemeProviderReact, createTheme, CssBaseline as CssBaselineReact } from "@mui/material"
+import { applyPureReactInVue } from "veaury";
 
 const theme = createTheme({
     palette: {

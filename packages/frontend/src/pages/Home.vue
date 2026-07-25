@@ -6,9 +6,9 @@
         <p>如果你想证明你是人类，那请您花费大约两分钟的时间来做「言纹 / FLIP」吧。</p>
         <p>本测验仅供娱乐，不要太过于当真。</p>
         <TextField label="用户名" variant="outlined" @change="updateUsername" />
-        <VueHcaptcha sitekey="7f143322-c5be-437e-8ea4-8f1c71c27916" />
+        <VueHcaptcha sitekey="7f143322-c5be-437e-8ea4-8f1c71c27916" @verify="doCaptcha" />
         <!--Captcha-->
-        <Button variant="contained" :endIcon="createElement(ArrowForward)" @click="handleStart">开始吧</Button>
+        <Button :disabled="!verified" variant="contained" :endIcon="createElement(ArrowForward)" @click="handleStart">开始吧</Button>
     </div>
 </template>
 
@@ -39,10 +39,18 @@ const TextField = applyPureReactInVue(TextFieldReact);
 
 const router = useRouter();
 const username = ref("");
+const verified = ref(false);
+
 
 function updateUsername(ev: Event) {
     username.value = ev.target.value;
 }
+
+function doCaptcha(token: string, ekey: string) {
+    // 目前还只是个外表...
+    verified.value = true;
+}
+
 function handleStart() {
     localStorage.setItem("history", "[]"); // 防止有人聊一半又回去重新开始
     localStorage.setItem("username", username.value);

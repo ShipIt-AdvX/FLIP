@@ -15,7 +15,7 @@
       "@/*": ["./src/*"]
     },
 
-    "types": ["vite/client","react-dom"],
+    "types": ["vite/client","react-dom", "@hcaptcha/types"],
 
     // `vue-tsc --build` produces a .tsbuildinfo file for incremental type-checking.
     // Specified here to keep it out of the root directory.

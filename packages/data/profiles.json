@@ -1,0 +1,32 @@
+{
+  "295076e4-969d-4810-a46e-5ec33e575042": {
+    "nickname": "DevTest",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix",
+    "humanScore": 67,
+    "totalRounds": 3,
+    "exposedCount": 1,
+    "summary": "你这场测试的结果挺有意思的，67分的人类度说明你时而机灵得像人类老油条，时而冷静得像AI客服——被识破的那一轮估计是走神了吧？整体上AI对你半信半疑，说你是人吧，偶尔又透着一股电子味道，看来下次多加点人情味就能骗过考官了。",
+    "id": "295076e4-969d-4810-a46e-5ec33e575042",
+    "createdAt": 1785029721700
+  },
+  "160cea7e-2cf0-4797-a9c7-69fb0a0686f4": {
+    "nickname": "顺丰顾给你们新工厂",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix",
+    "humanScore": 0,
+    "totalRounds": 3,
+    "exposedCount": 3,
+    "summary": "你这是在测试AI还是自我暴露啊？三局全被识破，人类度零分——简直比机器人还机器。要不是图灵测试不允许，我都怀疑你是AI派来反向卧底的。建议下次多加点“嗯…这个嘛”和结巴，或许能蒙混过关？",
+    "id": "160cea7e-2cf0-4797-a9c7-69fb0a0686f4",
+    "createdAt": 1785042126565
+  },
+  "aeb56739-9e6a-45d1-a4b4-41de88d36bca": {
+    "nickname": "美女子",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix",
+    "humanScore": 75,
+    "totalRounds": 4,
+    "exposedCount": 1,
+    "summary": "你这场测试表现挺有意思的——75分的人类度，说明你大部分时候很有人味儿，但那一次被AI识破，可能暴露了你偶尔会像程序一样冒出点逻辑漏洞。保持这种忽而人类忽而机器的神秘感，下次骗过图灵测试应该不难。",
+    "id": "aeb56739-9e6a-45d1-a4b4-41de88d36bca",
+    "createdAt": 1785046867595
+  }
+}

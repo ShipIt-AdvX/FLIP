@@ -28,3 +28,11 @@ const personalityTypes: Record<string, YanwenType> = {
 };
 
 export default personalityTypes;
+
+// 图灵测试：根据人类度分数返回评语
+export function humanScoreText(score: number): string {
+  if (score >= 90) return "真正的人类";
+  if (score >= 70) return "人类气息浓厚";
+  if (score >= 50) return "半人半机";
+  return "AI 嫌疑人";
+}

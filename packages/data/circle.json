@@ -1,0 +1,20 @@
+[
+  {
+    "profileId": "160cea7e-2cf0-4797-a9c7-69fb0a0686f4",
+    "nickname": "顺丰顾给你们新工厂",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix",
+    "humanScore": 0,
+    "content": "hello",
+    "id": "f875acd4-4221-4220-9ecf-1d814124b5d3",
+    "createdAt": 1785042136322
+  },
+  {
+    "profileId": "295076e4-969d-4810-a46e-5ec33e575042",
+    "nickname": "DevTest",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix",
+    "humanScore": 67,
+    "content": "111",
+    "id": "db911cbd-b096-429d-91ce-743b711ef444",
+    "createdAt": 1785029728838
+  }
+]

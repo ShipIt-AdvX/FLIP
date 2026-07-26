@@ -6,7 +6,13 @@
   "author": "ShipIt-Advx",
   "main": "index.js",
   "scripts": {},
-  "workspaces":[
+  "workspaces": [
     "packages/*"
-  ]
+  ],
+  "optionalDependencies": {
+    "@rolldown/binding-linux-x64-gnu": "^1.1.5"
+  },
+  "devDependencies": {
+    "dotenv": "^17.4.2"
+  }
 }
